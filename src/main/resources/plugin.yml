@@ -1,0 +1,4 @@
+name: AntiDropScattering
+version: '1.0-SNAPSHOT'
+main: me.deaglewolf.antidropscattering.AntiDropScattering
+api-version: '1.21'
