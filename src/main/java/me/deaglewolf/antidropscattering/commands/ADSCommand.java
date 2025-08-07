@@ -4,12 +4,10 @@ import me.deaglewolf.antidropscattering.AntiDropScattering;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 public class ADSCommand implements CommandExecutor {
     @Override
-    public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String @NotNull [] args) {
+    public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (sender.hasPermission("ads.admin")) {
             if (args.length > 0 && args[0].equals("toggle")) {
                 boolean b = args.length > 1 ? parseToggle(args[1]) : !AntiDropScattering.getInstance().pluginIsEnabled();
@@ -29,7 +27,7 @@ public class ADSCommand implements CommandExecutor {
         return false;
     }
 
-    public boolean parseToggle(@Nullable String s) {
+    public boolean parseToggle(String s) {
         if (s == null)
             return !AntiDropScattering.getInstance().pluginIsEnabled();
 
