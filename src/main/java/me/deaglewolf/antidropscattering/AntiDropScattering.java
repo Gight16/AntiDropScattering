@@ -7,6 +7,7 @@ import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.File;
+import java.util.logging.Logger;
 
 public final class AntiDropScattering extends JavaPlugin {
     private boolean enabled;
@@ -15,6 +16,8 @@ public final class AntiDropScattering extends JavaPlugin {
     private YamlConfiguration yamlConfiguration;
 
     private static AntiDropScattering instance;
+
+    private Logger logger = getLogger();
 
     public static AntiDropScattering getInstance() {
         return instance;
@@ -26,9 +29,15 @@ public final class AntiDropScattering extends JavaPlugin {
 
         Bukkit.getPluginManager().registerEvents(new BukkitListener(), this);
 
+        logger.info("Events registered.");
+
         getCommand("ads").setExecutor(new ADSCommand());
 
+        logger.info("Commands registered.");
+
         loadConfig();
+        logger.info("Config Loaded.");
+        logger.info("AntiDropScattering loaded successfully!");
     }
 
     public boolean pluginIsEnabled() {
